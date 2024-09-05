@@ -2,12 +2,15 @@
   "name": "gettext-ts",
   "version": "1.0.0",
   "description": "simple gettext for typescript",
+  "keywords": ["gettext", "typescript", "i18n", "l10n", "translation"],
   "main": "dist/index.js",
+  "repository": "https://github.com/sherpya/gettext-ts",
   "type": "commonjs",
   "author": "Gianluigi Tiesi <sherpya@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
+    "build": "tsc",
     "test": "jest",
     "clean": "rimraf dist"
   },
