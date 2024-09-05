@@ -1,7 +1,7 @@
 {
   "name": "gettext-ts",
   "author": "Gianluigi Tiesi <sherpya@gmail.com>",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "description": "simple gettext for typescript",
   "keywords": [
