@@ -187,7 +187,7 @@ describe('gettext-ts test suite', () => {
                 try {
                     i18n.ngettext('There is %1 apple', 'There are %1 apples', 42);
                 } catch (e) {
-                    expect(e.message).toBe('The plural form "nplurals=2; plural=[not valid];" is not valid');
+                    expect((e as Error).message).toBe('The plural form "nplurals=2; plural=[not valid];" is not valid');
                 }
             });
             it('should fail another unvalid plural form', function () {
@@ -205,7 +205,7 @@ describe('gettext-ts test suite', () => {
                 try {
                     i18n.ngettext('There is %1 apple', 'There are %1 apples', 42);
                 } catch (e) {
-                    expect(e.message).toBe('The plural form "nplurals=2; plural=n>1; console.log(`PWNED!`);" is not valid');
+                    expect((e as Error).message).toBe('The plural form "nplurals=2; plural=n>1; console.log(`PWNED!`);" is not valid');
                 }
             });
             it('should handle multiple locale & pluals cohabitation', function () {

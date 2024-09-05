@@ -54,7 +54,7 @@ export class I18N {
     domain: string;
     ctxt_delimiter: string;
 
-    plural_forms = {};
+    plural_forms: Record<string, string> = {};
     plural_funcs: PluralFunctions = {};
     dictionary: Dictionary = {};
 
@@ -155,7 +155,7 @@ export class I18N {
         }
 
         return (_: number) => {
-            return { nplurals, plural };
+            return { nplurals: nplurals!, plural: plural! };
         };
     }
 
@@ -247,18 +247,18 @@ export class I18N {
     }
 
     gettext(msgid: string, ...args: any[]) {
-        return this.dcnpgettext(undefined, undefined, msgid, undefined, undefined, ...args);
+        return this.dcnpgettext(null, null, msgid, null, 0, ...args);
     }
 
     ngettext(msgid: string, msgid_plural: string, n: number, ...args: any[]) {
-        return this.dcnpgettext(undefined, undefined, msgid, msgid_plural, n, ...args);
+        return this.dcnpgettext(null, null, msgid, msgid_plural, n, ...args);
     }
 
     pgettext(msgctxt: string, msgid: string, ...args: any[]) {
-        return this.dcnpgettext(undefined, msgctxt, msgid, undefined, undefined, ...args);
+        return this.dcnpgettext(null, msgctxt, msgid, null, 0, ...args);
     }
 
-    dcnpgettext(domain: string, msgctxt: string, msgid: string, msgid_plural: string, n: number, ...args: any[]) {
+    dcnpgettext(domain: string | null, msgctxt: string | null, msgid: string, msgid_plural: string | null, n: number, ...args: any[]) {
         domain = domain || this.domain;
 
         const options: GettextOptions = { plural_form: false };

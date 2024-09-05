@@ -1,11 +1,24 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es2017",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "declaration": true,
+    "declarationDir": "./dist/types",
+    "strict": true,
     "esModuleInterop": true,
-    "outDir": "dist",
-    "sourceMap": true,
-    "rootDir": "src"
-  }
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "rootDir": "./src"
+  },
+  "include": [
+    "src/gettext.ts"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }

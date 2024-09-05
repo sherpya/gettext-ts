@@ -1,18 +1,30 @@
 {
   "name": "gettext-ts",
-  "version": "1.0.0",
-  "description": "simple gettext for typescript",
-  "keywords": ["gettext", "typescript", "i18n", "l10n", "translation"],
-  "main": "dist/index.js",
-  "repository": "https://github.com/sherpya/gettext-ts",
-  "type": "commonjs",
   "author": "Gianluigi Tiesi <sherpya@gmail.com>",
+  "version": "1.0.0",
   "license": "MIT",
-  "private": true,
+  "description": "simple gettext for typescript",
+  "keywords": [
+    "gettext",
+    "typescript",
+    "i18n",
+    "l10n",
+    "translation"
+  ],
+  "repository": "https://github.com/sherpya/gettext-ts",
+  "main": "./dist/gettext.js",
+  "module": "./dist/gettext.mjs",
+  "types": "./dist/gettext.d.ts",
+  "files": [
+    "README.md",
+    "LICENSE",
+    "dist"
+  ],
   "scripts": {
-    "build": "tsc",
     "test": "jest",
-    "clean": "rimraf dist"
+    "build": "tsup src/gettext.ts --format cjs,esm --dts --clean",
+    "clean": "rimraf dist",
+    "prepack": "npm run clean && npm run build"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
@@ -20,6 +32,7 @@
     "rimraf": "^6.0.1",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
+    "tsup": "^8.2.4",
     "typescript": "^5.5.4"
   },
   "dependencies": {},
